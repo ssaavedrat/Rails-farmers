@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @farm %>
+
+<div>
+  <%= link_to "Edit this farm", edit_farm_path(@farm) %> |
+  <%= link_to "Back to farms", farms_path %>
+
+  <%= button_to "Destroy this farm", @farm, method: :delete %>
+</div>
