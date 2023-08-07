@@ -22,6 +22,7 @@ class AnimalsController < ApplicationController
   # POST /animals or /animals.json
   def create
     @animal = Animal.new(animal_params)
+    # @animal.farmer = Farmer.last # @animal.farmer_id = Farmer.last.id
 
     respond_to do |format|
       if @animal.save
@@ -65,6 +66,6 @@ class AnimalsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def animal_params
-      params.require(:animal).permit(:name)
+      params.require(:animal).permit(:name, :farmer_id)
     end
 end

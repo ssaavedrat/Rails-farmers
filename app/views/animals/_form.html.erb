@@ -2,7 +2,6 @@
   <% if animal.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(animal.errors.count, "error") %> prohibited this animal from being saved:</h2>
-
       <ul>
         <% animal.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,12 +9,14 @@
       </ul>
     </div>
   <% end %>
-
   <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
-
+  <div>
+    <%= form.label :farmer_id, style: "display: block" %>
+    <%= form.collection_select :farmer_id, Farmer.all, :id, :name %>
+  </div>
   <div>
     <%= form.submit %>
   </div>
