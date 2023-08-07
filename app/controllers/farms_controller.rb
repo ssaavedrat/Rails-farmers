@@ -13,6 +13,8 @@ class FarmsController < ApplicationController
   # GET /farms/new
   def new
     @farm = Farm.new
+    # Allow the form to build a farmer
+    @farm.farmers.build
   end
 
   # GET /farms/1/edit
@@ -65,6 +67,6 @@ class FarmsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def farm_params
-      params.require(:farm).permit(:name)
+      params.require(:farm).permit(:name, farmers_attributes: [:id, :name, :age, :_destroy])
     end
 end

@@ -2,6 +2,15 @@
   <p>
     <strong>Name:</strong>
     <%= farm.name %>
+    <strong>Granjeros:</strong>
+    <%farm.farmers.each do |farmer|%>
+      <span>
+        <%= farmer.name %>
+      </span>
+    <%end%>
+    <span>
+      <%= link_to "Show this farm", farm %> |
+      <%= button_to "Destroy this farm", @farm, method: :delete %>
+    </span>
   </p>
-
 </div>
